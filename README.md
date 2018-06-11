@@ -1,0 +1,1 @@
+This project was created to track the creation of the Farsight AI system for the purpose of home automation/smart home applications.
