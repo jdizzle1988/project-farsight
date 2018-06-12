@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import datetime
 import pyttsx
+import os
 
 
 
@@ -10,12 +11,22 @@ def task():
     output = None
 
     if job == 1:
-        
-        output = 'The time is ' + datetime.datetime.now().strftime("%I:%M %p")
+        output = 'Good day sir!'
+        speak()
+        exit()
 
     elif job == 2:
 
+        output = 'The time is ' + datetime.datetime.now().strftime("%I:%M %p")
+
+    elif job == 3:
+
         output = 'The date is, ' + datetime.datetime.now().strftime("%a, %B %d %Y")
+
+    elif job == 4:
+
+        os.system("python ./games/rpg.py")
+        output = 'I hope that was fun.'
     
     elif job == 0:
 
@@ -34,13 +45,23 @@ def ginput ():
     # Process Input
     commStr = command.split(" ")
 
-    if "time" in commStr:
-        
-        job = 1 
+    if "exit" in commStr:
+
+        job = 1
+
+    elif "time" in commStr:
+       
+        job = 2 
 
     elif "date" in commStr:
 
-        job = 2
+        job = 3
+
+    elif "play" in commStr:
+        if "rpg" in commStr:
+            job = 4
+        else:
+            job = 0
 
     else:
         job = 0
