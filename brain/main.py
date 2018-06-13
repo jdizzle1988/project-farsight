@@ -2,6 +2,7 @@
 import datetime
 import pyttsx
 import os
+import weather
 
 
 
@@ -28,6 +29,14 @@ def task():
         os.system("python ./games/rpg.py")
         output = 'I hope that was fun.'
     
+    elif job == 5:
+        from weather import Weather, Unit
+
+        weather = Weather(unit=Unit.FAHRENHEIT)
+        location = weather.lookup_by_location('logan,ohio')
+        condition = location.condition
+        output = 'The forcast for today is ' + condition.text
+
     elif job == 0:
 
         output = "I didn't understand that."
@@ -56,12 +65,18 @@ def ginput ():
     elif "date" in commStr:
 
         job = 3
+ 
 
     elif "play" in commStr:
         if "rpg" in commStr:
             job = 4
         else:
             job = 0
+
+       
+    elif "weather" in commStr:
+
+        job = 5            
 
     else:
         job = 0
