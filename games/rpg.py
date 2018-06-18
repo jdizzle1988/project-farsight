@@ -12,7 +12,9 @@ def speak ():
 def start ():
     global output
     output = None
-
+    global desc 
+    desc = None
+    
     output = 'You are about to embark on a mystic journey through the world.'
     speak()
     output = 'Tell me your name, brave adventurer.'
@@ -42,15 +44,30 @@ def start ():
 
 def game ():
 
-    desc = 'So ' + name + 'You stand in an Inn. The obvious exits are, south. Which way would you like to go?'
+    gen_room()
+    output = name + ', ' + desc
+    speak()
 
     return;
 
 def gen_room ():
-        global exits
-        exits = None
-    return;
+    
+    exits = ['north', 'south', 'east', 'west']
+
+    import numpy as nrand
+
+    exit1 = exits[nrand.random.rand(3)]
+    exit2 = exits[nrand.random.rand(3)]
+
+    rtype = ['A dank brick room', 'A dimly lit room', 'A room full of bones', 'A room with an inch of water on the floor', 'A brightly lit room']
+
+    room_type = rtype[nrand.random.rand(4)]
+    
+    desc = 'You enter into ' + room_type + ' the obvious exits are ' + exit1 + ' and ' + exit2
+
+    return desc;
 
 start()
+game()
 
 print "RPG End"
