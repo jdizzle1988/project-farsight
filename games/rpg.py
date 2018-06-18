@@ -33,7 +33,7 @@ def start ():
         output = 'Your starting inventory as a warrior is a rusty shortsword and a shield. You are wearing a chainmail shirt.'
         speak()
     elif clss == 'mage':
-        ouput = 'Your starting inventory as a mage is an  old staff and a spellbook. You are wearing a robe.'
+        ouput = 'Your starting inventory as a mage is an old staff and a spellbook. You are wearing a robe.'
         speak()
     elif clss == 'rogue':
         output = 'Your starting inventory as a rogue is two rusty daggers. You are wearing leather armor.'
